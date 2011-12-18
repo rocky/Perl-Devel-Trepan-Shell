@@ -1,0 +1,4 @@
+Build.PL
+lib/Devel/Trepan/CmdProcessor/Command/Shell.pm
+lib/Devel/Trepan/Shell.pm
+MANIFEST			This list of files
