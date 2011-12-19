@@ -2,8 +2,35 @@
 use warnings; no warnings 'redefine';
 use feature ":5.10";  # Includes "state" feature.
 
-use Devel::Trepan::CmdProcessor::Command;
+## FIXME: figure out how to put in a spearate file.
+package Devel::REPL::Plugin::TrepanShell;
+
+use Devel::REPL::Plugin;
+use namespace::clean -except => [ 'meta' ];
+
+has 'history' => (
+   isa => 'ArrayRef', is => 'rw', required => 1, lazy => 1,
+   default => sub { [] }
+);
+
+around 'read' => sub {
+   my $orig = shift;
+   my ($self, @args) = @_;
+   my $line = $self->$orig(@args);
+   if (defined $line) {
+      if ($line =~ m/^\.(.*)$/) {
+         my $fn = $1;
+	 return undef;
+      }
+   }
+   return $line;
+};
+
+use rlib '../../../..';
 package Devel::Trepan::CmdProcessor::Command::Shell;
+use Devel::Trepan::CmdProcessor::Command;
+use English;
+no strict;
 use if !defined @ISA, Devel::Trepan::CmdProcessor::Command ;
 unless (defined @ISA) {
     eval <<"EOE";
@@ -42,8 +69,7 @@ sub run($$)
     state $repl;
     unless (defined($repl)) {
 	$repl = Devel::REPL->new;
-	$repl->load_plugin('MultiLine::PPI'); # for indent depth
-	$repl->load_plugin('Packages');       # for current package
+
 	$repl->load_plugin('FancyPrompt');
 	$repl->fancy_prompt(sub {
 	    my $self = shift;
@@ -53,8 +79,18 @@ sub run($$)
 	    #          $self->lines_read,
 	    #          $self->can('line_depth') ? ':' . $self->line_depth : '';
 	    'trepan.pl>> '});
+
+	$repl->load_plugin('LexEnv');         # 'my' variables should persist.
+	$repl->load_plugin('MultiLine::PPI'); # for indent depth
+	$repl->load_plugin('Packages');       # for current package
+	$repl->load_plugin('TrepanShell');       # for current package
     }
-    $repl->run;
+    eval {
+	$repl->run;
+    }; 
+    if ($EVAL_ERROR) { 
+	print "Got error: $EVAL_ERROR\n";
+    }
 }
 
 unless (caller) {
