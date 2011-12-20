@@ -5,7 +5,7 @@ An interactive shell command for [Devel::Trepan](https://github.com/rocky/Perl-D
 
 Motivation: _Devel::Trepan_ is getting quite large and adding a shell
 via _Devel::REPL_ pulls in lots of other packages. Thus we have this
-separatated this portion.
+separated this portion.
 
 INSTALLATION
 ------------
