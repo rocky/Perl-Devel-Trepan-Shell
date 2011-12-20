@@ -19,7 +19,7 @@ around 'read' => sub {
    my $line = $self->$orig(@args);
    if (defined $line) {
       if ($line =~ m/^\.(.*)$/) {
-         my $fn = $1;
+         $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND = $1;
 	 return undef;
       }
    }
@@ -28,6 +28,7 @@ around 'read' => sub {
 
 use rlib '../../../..';
 package Devel::Trepan::CmdProcessor::Command::Shell;
+use vars qw($DEBUGGER_COMMAND);
 use Devel::Trepan::CmdProcessor::Command;
 use English;
 no strict;
@@ -78,18 +79,27 @@ sub run($$)
             #                     ? $self->current_package : 'main',
 	    #          $self->lines_read,
 	    #          $self->can('line_depth') ? ':' . $self->line_depth : '';
-	    'trepan.pl>> '});
-
+	    "\ntrepan.pl>> "});
+	
 	$repl->load_plugin('LexEnv');         # 'my' variables should persist.
 	$repl->load_plugin('MultiLine::PPI'); # for indent depth
 	$repl->load_plugin('Packages');       # for current package
 	$repl->load_plugin('TrepanShell');       # for current package
     }
-    eval {
-	$repl->run;
-    }; 
-    if ($EVAL_ERROR) { 
-	print "Got error: $EVAL_ERROR\n";
+    
+    my $proc = $self->{proc};
+    while (!$proc->{leave_cmd_loop}) {
+	$DEBUGGER_COMMAND='';
+	eval {
+	    $repl->run;
+	}; 
+	if ($EVAL_ERROR) { 
+	    $self->errmsg($EVAL_ERROR);
+	}
+	my $cmd = $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND;
+	if ($cmd) {
+	    $proc->run_command($cmd);
+	}
     }
 }
 
