@@ -53,6 +53,13 @@ our $HELP = <<"HELP";
 ${NAME} 
 
 Run a command shell via Devel::REPL
+
+To issue a debugger command inside the shell start the line with a '.'
+For example: 
+
+.info program  # shows debugged program information
+
+To leave the shell enter a single .
 HELP
 
 # sub complete($$)
@@ -67,27 +74,22 @@ use Devel::REPL;
 sub run($$)
 {
     my ($self, $args) = @_;
+    my $proc = $self->{proc};
     state $repl;
     unless (defined($repl)) {
-	$repl = Devel::REPL->new;
-
-	$repl->load_plugin('FancyPrompt');
-	$repl->fancy_prompt(sub {
-	    my $self = shift;
-	    # sprintf 're.pl(%s):%03d%s> ',
-	    #          $self->can('current_package')
-            #                     ? $self->current_package : 'main',
-	    #          $self->lines_read,
-	    #          $self->can('line_depth') ? ':' . $self->line_depth : '';
-	    "\ntrepan.pl>> "});
-	
+	my $term = $proc->{interfaces}[-1]{input}{readline};
+	$repl = Devel::REPL->new(
+	    prompt => "\ntrepan.pl>> ",
+	    term   => $term
+	    );
 	$repl->load_plugin('LexEnv');         # 'my' variables should persist.
 	$repl->load_plugin('MultiLine::PPI'); # for indent depth
 	$repl->load_plugin('Packages');       # for current package
 	$repl->load_plugin('TrepanShell');       # for current package
+	$self->msg("To issue a debugger command inside the shell start the line with a '.'");
+	$self->msg("To leave the shell enter a single '.'");
     }
     
-    my $proc = $self->{proc};
     while (!$proc->{leave_cmd_loop}) {
 	$DEBUGGER_COMMAND='';
 	eval {
@@ -99,7 +101,7 @@ sub run($$)
 	my $cmd = $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND;
 	if ($cmd) {
 	    $proc->run_command($cmd);
-	}
+	} else { last; }
     }
 }
 
