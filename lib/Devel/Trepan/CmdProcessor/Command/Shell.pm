@@ -18,7 +18,7 @@ around 'read' => sub {
    my ($self, @args) = @_;
    my $line = $self->$orig(@args);
    if (defined $line) {
-      if ($line =~ m/^\.(.*)$/) {
+      if ($line =~ m/^%(.*)$/) {
          $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND = $1;
 	 return undef;
       }
@@ -54,10 +54,10 @@ ${NAME}
 
 Run a command shell via Devel::REPL
 
-To issue a debugger command inside the shell start the line with a '.'
+To issue a debugger command inside the shell start the line with a '%'
 For example: 
 
-.info program  # shows debugged program information
+%info program  # shows debugged program information
 
 To leave the shell enter a single .
 HELP
@@ -86,8 +86,8 @@ sub run($$)
 	$repl->load_plugin('MultiLine::PPI'); # for indent depth
 	$repl->load_plugin('Packages');       # for current package
 	$repl->load_plugin('TrepanShell');       # for current package
-	$self->msg("To issue a debugger command inside the shell start the line with a '.'");
-	$self->msg("To leave the shell enter a single '.'");
+	$self->msg("To issue a debugger command inside the shell start the line with a '%'");
+	$self->msg("To leave the shell enter a single '%'");
     }
     
     while (!$proc->{leave_cmd_loop}) {

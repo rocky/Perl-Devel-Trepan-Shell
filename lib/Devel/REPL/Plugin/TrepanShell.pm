@@ -14,10 +14,10 @@ around 'read' => sub {
    my ($self, @args) = @_;
    my $line = $self->$orig(@args);
    if (defined $line) {
-      if ($line =~ m/^\.(.*)$/) {
-         my $fn = $1;
-	 die "$1";
-      }
+       if ($line =~ m/^%(.*)$/) {
+	   my $fn = $1;
+	   die "$1";
+       }
    }
    return $line;
 };
@@ -28,7 +28,7 @@ __END__
 
 =head1 NAME
 
-Devel::REPL::Plugin::TrepanShell - Add '.' commands to call back Trepan in a Devel::REPL shell invoked from Devel::Trepan
+Devel::REPL::Plugin::TrepanShell - Add '%' commands to call back Trepan in a Devel::REPL shell invoked from Devel::Trepan
 
 =cut
 
