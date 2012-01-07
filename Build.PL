@@ -40,9 +40,10 @@ my $builder = Module::Build->new(
     },
     requires => {
 	'perl'                              => '5.010',               
-	'Devel::Trepan'                     => '0.1.4',
+	'Devel::Trepan'                     => '0.001009',
 	'Devel::REPL'                       => 0,
-        'Test::More'                        => 0,
+        'Test::More'                        => '0.81',
+        'Enbugger'                          => '2.012',
         'version'                           => 0,
     },
     sign                => ($ENV{PERL_MB_NOSIGN} ? 0 : 1),
