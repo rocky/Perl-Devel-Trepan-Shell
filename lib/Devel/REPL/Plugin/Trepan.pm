@@ -17,11 +17,13 @@ around 'read' => sub {
    if (defined $line) {
        if ($line =~ m/^%debug\s+(.*)$/) {
 	   my $eval_code = $1;
-	   eval "
+	   $DB::eval_string = 
+"package Devel::REPL::Plugin::Packages::DefaultScratchpad;
 Enbugger->stop;  # newline is nice to have in showing code
 $eval_code;
-\$DB::signal = \$DB::single = \$DB::trace = 0;
-"
+\$DB::signal = \$DB::single = \$DB::trace = 0;";
+	   eval $DB::eval_string;
+	   return $@;
        }
    }
    return $line;
