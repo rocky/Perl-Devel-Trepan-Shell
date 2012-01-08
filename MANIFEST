@@ -1,5 +1,8 @@
 Build.PL
 GNUmakefile
+lib/Devel/REPL/Plugin/Perl5db.pm
+lib/Devel/REPL/Plugin/Trepan.pm
+lib/Devel/REPL/Plugin/TrepanShell.pm
 lib/Devel/Trepan/CmdProcessor/Command/Shell.pm
 lib/Devel/Trepan/Shell.pm
 MANIFEST			This list of files

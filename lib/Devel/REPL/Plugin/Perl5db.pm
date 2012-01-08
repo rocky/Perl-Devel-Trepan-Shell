@@ -1,7 +1,7 @@
-package Devel::REPL::Plugin::Trepan;
+package Devel::REPL::Plugin::Perl5db;
 
 use Devel::REPL::Plugin;
-use Enbugger 'trepan';
+use Enbugger 'perl5db';
 use namespace::clean -except => [ 'meta' ];
 
 has 'history' => (
@@ -14,7 +14,7 @@ around 'read' => sub {
    my ($self, @args) = @_;
    my $line = $self->$orig(@args);
    if (defined $line) {
-       if ($line =~ m/^%trepan\s+(.*)$/) {
+       if ($line =~ m/^%perl5db\s+(.*)$/) {
 	   my $eval_code = $1;
 	   $DB::eval_string = 
 "package Devel::REPL::Plugin::Packages::DefaultScratchpad;
