@@ -1,5 +1,4 @@
 package Devel::REPL::Plugin::TrepanShell;
-print __FILE__, " here\n";
 
 use Devel::REPL::Plugin;
 use namespace::clean -except => [ 'meta' ];
