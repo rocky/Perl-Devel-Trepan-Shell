@@ -16,11 +16,13 @@ a <i>Devel::REPL</i> shell from inside the debugger.
 
 But wait, there's more!
 
-This package also contains some Devel::REPL plugins for entering both the
-<i>Devel::Trepan<i> debugger and the tried-and-true <i>perl5db</i>
+This package also contains some <i>Devel::REPL</i> plugins for entering both the
+<i>Devel::Trepan</i> debugger and the tried-and-true <i>perl5db</i>
 debuger, fom a <i>re.pl</i> shell:
 
-To call the debuggers inside re.pl, first run (or put in your rcfile)
+To call the debuggers inside <i>re.pl<i>, first run (or put in your 
+<i>~/.re.pl/rc.pl</i> file)
+
     $_REPL->load_plugin('Trepan');         # to go into the trepan debugger
     $_REPL->load_plugin('Perl5db');        # to go into the perl5db debugger
 
@@ -42,9 +44,9 @@ To install this Devel::Trepan::Shell, run the following commands:
 
 or:
 
-        $ perl -MCPAN -e shell
-	...
-	cpan[1]> install Devel::Trepan::Shell
+    $ perl -MCPAN -e shell
+    ...
+    cpan[1]> install Devel::Trepan::Shell
 
 LICENSE AND COPYRIGHT
 ---------------------
