@@ -1,3 +1,15 @@
+2012-01-16  Rocky Bernstein <rocky@cpan.org>
+
+	* README.md: Tidy README.md
+
+2012-01-16  Rocky Bernstein <rocky@cpan.org>
+
+	* README.md: Tidy README.md
+
+2012-01-16  Rocky Bernstein <rocky@cpan.org>
+
+	* ChangeLog, Changes, README.md: Get ready for release
+
 2012-01-07  Rocky Bernstein <rocky@cpan.org>
 
 	* MANIFEST, MANIFEST.SKIP, lib/Devel/REPL/Plugin/Perl5db.pm,

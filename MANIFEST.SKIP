@@ -72,3 +72,5 @@
 
 # Avoid archives of this distribution
 \bDevel-Trepan-Shell-[\d\.\_]+
+
+how-to-make-a-release\.txt
