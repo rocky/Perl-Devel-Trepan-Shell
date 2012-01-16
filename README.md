@@ -20,7 +20,7 @@ This package also contains some <i>Devel::REPL</i> plugins for entering both the
 <i>Devel::Trepan</i> debugger and the tried-and-true <i>perl5db</i>
 debuger, fom a <i>re.pl</i> shell:
 
-To call the debuggers inside <i>re.pl<i>, first run (or put in your 
+To call the debuggers inside <i>re.pl</i>, first run (or put in your 
 <i>~/.re.pl/rc.pl</i> file)
 
     $_REPL->load_plugin('Trepan');         # to go into the trepan debugger
@@ -35,7 +35,7 @@ And then in your re.pl session:
 INSTALLATION
 ------------
 
-To install this Devel::Trepan::Shell, run the following commands:
+To install <i>Devel::Trepan::Shell</i>, run the following commands:
 
 	perl Build.PL
 	make
