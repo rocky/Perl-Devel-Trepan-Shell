@@ -1,0 +1,60 @@
+2012-01-07  Rocky Bernstein <rocky@cpan.org>
+
+	* MANIFEST, MANIFEST.SKIP, lib/Devel/REPL/Plugin/Perl5db.pm,
+	lib/Devel/REPL/Plugin/Trepan.pm: Perl5db.pm: allow perl5db to be
+	called from command line via %perl5db Trepan.pm: rename %debug to
+	%trepan so as not to confuse/conflict.
+
+2012-01-07  Rocky Bernstein <rocky@cpan.org>
+
+	* lib/Devel/REPL/Plugin/TrepanShell.pm: Remove debug print
+
+2012-01-07  Rocky Bernstein <rocky@cpan.org>
+
+	* lib/Devel/REPL/Plugin/Trepan.pm, lib/Devel/Trepan/Shell.pm: 
+	Trepan.pm: Make sure we switch back to Shell eval package context.
+	Set eval string in DB space, so the debugger is sure to see it.
+	Shell.pm: remove unneeded baggage.
+
+2012-01-06  Rocky Bernstein <rocky@cpan.org>
+
+	* Build.PL, lib/Devel/REPL/Plugin/Trepan.pm: Trepan.pm: rough cut at
+	adding %debug to debug into an expression. Biuld.PL: add
+	dependencies.
+
+2011-12-26  Rocky Bernstein <rocky@cpan.org>
+
+	* lib/Devel/REPL/Plugin/TrepanShell.pm,
+	lib/Devel/Trepan/CmdProcessor/Command/Shell.pm: Use % as escape
+	character to match what has been done in other Plugins for non-Perl
+	commands. It also matches what's done in ipython.
+
+2011-12-20  Rocky Bernstein <rocky@cpan.org>
+
+	* README.md: Typo in README.md
+
+2011-12-20  Rocky Bernstein <rocky@cpan.org>
+
+	* lib/Devel/Trepan/CmdProcessor/Command/Shell.pm: Add ability to
+	call debugger commands from inside shell. Simplify setting prompt.
+	Pass in our readline interface to the shell since Term::ReadLine
+	can't create a second (nested) readline interface.
+
+2011-12-20  Rocky Bernstein <rocky@cpan.org>
+
+	* lib/Devel/Trepan/CmdProcessor/Command/Shell.pm: We can now run
+	debugger commands from inside Devel::REPL.
+
+2011-12-18  Rocky Bernstein <rocky@cpan.org>
+
+	* .gitignore, GNUmakefile, MANIFEST, MANIFEST.SKIP,
+	lib/Devel/REPL/Plugin/TrepanShell.pm,
+	lib/Devel/Trepan/CmdProcessor/Command/Shell.pm,
+	lib/Devel/Trepan/Shell.pm, testit.pl: Almost useful. Add '.' to get
+	out of re.pl.
+
+2011-12-18  Rocky Bernstein <rocky@cpan.org>
+
+	* A separate project to add interactive shell support to
+	Devel::Trepan.
+

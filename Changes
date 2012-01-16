@@ -1,0 +1,6 @@
+Revision history for Devel-Trepan-Shell
+
+1.0  Jan 16, 2012
+- Initial release. Add debugger command "shell" and alias "re.pl.
+  Add Devel::REPL.pl plugins trepan and Perldb with commands %trepan
+  and %perl5db respectively.
