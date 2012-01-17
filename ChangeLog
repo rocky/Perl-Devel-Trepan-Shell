@@ -1,3 +1,13 @@
+2012-01-17  Rocky Bernstein <rocky@cpan.org>
+
+	* Build.PL, Changes, MANIFEST, lib/Devel/Trepan/Shell.pm: No
+	String::Diff or ExtUtils::PkgCOnfig please. Allow Perl 5.008
+
+2012-01-16  Rocky Bernstein <rocky@cpan.org>
+
+	* Build.PL, ChangeLog, MANIFEST, MANIFEST.SKIP,
+	lib/Devel/Trepan/Shell.pm: Get ready for 1.0 release
+
 2012-01-16  Rocky Bernstein <rocky@cpan.org>
 
 	* README.md: Tidy README.md
