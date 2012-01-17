@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-#  Copyright (C) 2011 Rocky Bernstein <rockycpan.org>
+#  Copyright (C) 2011, 2012 Rocky Bernstein <rockycpan.org>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 use strict;
 use warnings;
 use Module::Build;
-use ExtUtils::PkgConfig;
 use Config;
 
 my $builder = Module::Build->new( 
@@ -34,12 +33,8 @@ my $builder = Module::Build->new(
     configure_requires  => { 
 	'Module::Build' => '0.32',
     },
-    build_requires => {
-        'String::Diff'        => 0,
-	'ExtUtils::PkgConfig' => 0, # Some String:Diffs flip out without this
-    },
     requires => {
-	'perl'                              => '5.010',               
+	'perl'                              => '5.008',               
 	'Devel::Trepan'                     => '0.001009',
 	'Devel::REPL'                       => 0,
         'Test::More'                        => '0.81',
