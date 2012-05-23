@@ -1,4 +1,4 @@
-# Copyright (C) 2011 Rocky Bernstein <rocky@cpan.org>
+# Copyright (C) 2011, 2012 Rocky Bernstein <rocky@cpan.org>
 use warnings; no warnings 'redefine';
 use feature ":5.10";  # Includes "state" feature.
 
@@ -32,8 +32,8 @@ use vars qw($DEBUGGER_COMMAND);
 use Devel::Trepan::CmdProcessor::Command;
 use English;
 no strict;
-use if !defined @ISA, Devel::Trepan::CmdProcessor::Command ;
-unless (defined @ISA) {
+use if !@ISA, Devel::Trepan::CmdProcessor::Command ;
+unless (@ISA) {
     eval <<"EOE";
 use constant ALIASES    => ('re.pl');
 use constant CATEGORY   => 'support';
