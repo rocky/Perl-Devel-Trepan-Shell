@@ -1,3 +1,11 @@
+2012-05-24  Rocky Bernstein <rocky@cpan.org>
+
+	* .gitignore, Build.PL, ChangeLog, Changes, MANIFEST, README,
+	README.md, lib/Devel/Trepan/Shell.pm, t/00load.t, t/00test-pod.t: 
+	Small changes and fixups for release: Correct README and add perlpod
+	to Shell.pm Add rudimentary tests. Correct MANIFEST for removed Psh
+
+
 2012-05-22  Rocky Bernstein <rocky@cpan.org>
 
 	* lib/Devel/Trepan/CmdProcessor/Command/Shell.pm,

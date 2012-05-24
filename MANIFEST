@@ -10,6 +10,7 @@ t/00test-pod.t
 MANIFEST			This list of files
 ChangeLog
 Changes
+README
 README.md
 Makefile.PL
 META.yml
