@@ -1,3 +1,17 @@
+2012-05-22  Rocky Bernstein <rocky@cpan.org>
+
+	* lib/Devel/Trepan/CmdProcessor/Command/Shell.pm,
+	lib/Devel/Trepan/Shell.pm: Remove defined(@array) for perl 5.16.
+	Bump version. Hopefully better test if Psh is around.
+
+2012-03-31  Rocky Bernstein <rocky@cpan.org>
+
+	* Build.PL, MANIFEST: Put back in psh support
+
+2012-01-17  Rocky Bernstein <rocky@cpan.org>
+
+	* ChangeLog: Get ready for release 1.1
+
 2012-01-17  Rocky Bernstein <rocky@cpan.org>
 
 	* Build.PL, Changes, MANIFEST, lib/Devel/Trepan/Shell.pm: No

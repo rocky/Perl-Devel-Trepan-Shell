@@ -34,11 +34,11 @@ my $builder = Module::Build->new(
 	'Module::Build' => '0.32',
     },
     requires => {
-	'perl'                              => '5.008',               
+	'perl'                              => '5.008008',
 	'Devel::Trepan'                     => '0.001009',
 	'Devel::REPL'                       => 0,
         'Test::More'                        => '0.81',
-         'version'                           => 0,
+         'version'                          => 0,
     },
     sign                => ($ENV{PERL_MB_NOSIGN} ? 0 : 1),
     );

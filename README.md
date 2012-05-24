@@ -18,15 +18,15 @@ But wait, there's more!
 
 This package also contains some <i>Devel::REPL</i> plugins for entering both the
 <i>Devel::Trepan</i> debugger and the tried-and-true <i>perl5db</i>
-debuger, fom a <i>re.pl</i> shell:
+debugger, from a <i>re.pl</i> shell:
 
-To call the debuggers inside <i>re.pl</i>, first run (or put in your 
-<i>~/.re.pl/rc.pl</i> file)
+To call the debuggers inside <i>re.pl</i>, first run or put in your 
+<i>~/.re.pl/rc.pl</i> file:
 
     $_REPL->load_plugin('Trepan');         # to go into the trepan debugger
     $_REPL->load_plugin('Perl5db');        # to go into the perl5db debugger
 
-And then in your re.pl session:
+And then in your <i>re.pl</i> session:
 
     %trepan Perl-expression-or-statement    # enter Devel::Trepan debugger
     %perl5db Perl-expression-or-statement   # enter Perl5db

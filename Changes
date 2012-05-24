@@ -1,5 +1,13 @@
 Revision history for Devel-Trepan-Shell
 
+1.2  May 24 2012
+- Remove defined(@array) which is deprecated in Perl 5.16
+- Remove Psh as shell. That should go in another plugin
+- Fix up README and add as perlpod in Shell.pm
+
+1.1  Jan 17, 2012
+- Reduce dependencies. Alow it to work on Perl 5.008.
+
 1.1  Jan 17, 2012
 - Reduce dependencies. Alow it to work on Perl 5.008.
 

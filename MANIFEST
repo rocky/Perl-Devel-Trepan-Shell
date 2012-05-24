@@ -4,9 +4,9 @@ lib/Devel/REPL/Plugin/Perl5db.pm
 lib/Devel/REPL/Plugin/Trepan.pm
 lib/Devel/REPL/Plugin/TrepanShell.pm
 lib/Devel/Trepan/CmdProcessor/Command/Shell.pm
-lib/Devel/Trepan/CmdProcessor/Command/Psh.pm
 lib/Devel/Trepan/Shell.pm
-lib/Devel/Trepan/Psh.pm
+t/00load.t
+t/00test-pod.t
 MANIFEST			This list of files
 ChangeLog
 Changes
