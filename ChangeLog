@@ -1,5 +1,14 @@
 2012-05-24  Rocky Bernstein <rocky@cpan.org>
 
+	* Build.PL, t/00test-pod.t: Need Perl 5.10 or greater. While we are
+	at it require Test::Pod 1.44
+
+2012-05-24  Rocky Bernstein <rocky@cpan.org>
+
+	* ChangeLog, MANIFEST: Get ready for release
+
+2012-05-24  Rocky Bernstein <rocky@cpan.org>
+
 	* .gitignore, Build.PL, ChangeLog, Changes, MANIFEST, README,
 	README.md, lib/Devel/Trepan/Shell.pm, t/00load.t, t/00test-pod.t: 
 	Small changes and fixups for release: Correct README and add perlpod

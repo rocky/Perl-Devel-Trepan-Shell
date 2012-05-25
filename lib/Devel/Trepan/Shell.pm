@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Rocky Bernstein <rocky@cpan.org>
 # Documentation is at the __END__
 package Devel::Trepan::Shell;
-use version; $VERSION = '1.2';
+use version; $VERSION = '1.3';
 "All of the real action is in Devel::Trepan::CmdProcessor::Command::Shell.pm";
 __END__
 
