@@ -1,8 +1,6 @@
 # Copyright (C) 2011, 2012 Rocky Bernstein <rocky@cpan.org>
 use warnings; no warnings 'redefine';
-use feature ":5.10";  # Includes "state" feature.
 
-## FIXME: figure out how to put in a spearate file.
 package Devel::REPL::Plugin::TrepanShell;
 
 use Devel::REPL::Plugin;
@@ -20,12 +18,13 @@ around 'read' => sub {
    if (defined $line) {
       if ($line =~ m/^%(.*)$/) {
          $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND = $1;
-	 return undef;
+         return undef;
       }
    }
    return $line;
 };
 
+my $repl;
 use rlib '../../../..';
 package Devel::Trepan::CmdProcessor::Command::Shell;
 use vars qw($DEBUGGER_COMMAND);
@@ -73,36 +72,35 @@ use Devel::REPL;
 # This method runs the command
 sub run($$)
 {
-    my ($self, $args) = @_;
-    my $proc = $self->{proc};
-    state $repl;
-    unless (defined($repl)) {
-	my $term = $proc->{interfaces}[-1]{input}{readline};
-	$repl = Devel::REPL->new(
-	    prompt => "\ntrepan.pl>> ",
-	    term   => $term
-	    );
-	$repl->load_plugin('LexEnv');         # 'my' variables should persist.
-	$repl->load_plugin('MultiLine::PPI'); # for indent depth
-	$repl->load_plugin('Packages');       # for current package
-	$repl->load_plugin('TrepanShell');       # for current package
-	$self->msg("To issue a debugger command inside the shell start the line with a '%'");
-	$self->msg("To leave the shell enter a single '%'");
+  my ($self, $args) = @_;
+  my $proc = $self->{proc};
+  unless (defined($repl)) {
+    my $term = $proc->{interfaces}[-1]{input}{readline};
+    $repl = Devel::REPL->new(
+                             prompt => "\ntrepan.pl>> ",
+                             term   => $term
+                            );
+    $repl->load_plugin('LexEnv');         # 'my' variables should persist.
+    $repl->load_plugin('MultiLine::PPI'); # for indent depth
+    $repl->load_plugin('Packages');       # for current package
+    $repl->load_plugin('TrepanShell');       # for current package
+    $self->msg("To issue a debugger command inside the shell start the line with a '%'");
+    $self->msg("To leave the shell enter a single '%'");
+  }
+
+  while (!$proc->{leave_cmd_loop}) {
+    $DEBUGGER_COMMAND='';
+    eval {
+      $repl->run;
+    }; 
+    if ($EVAL_ERROR) { 
+      $self->errmsg($EVAL_ERROR);
     }
-    
-    while (!$proc->{leave_cmd_loop}) {
-	$DEBUGGER_COMMAND='';
-	eval {
-	    $repl->run;
-	}; 
-	if ($EVAL_ERROR) { 
-	    $self->errmsg($EVAL_ERROR);
-	}
-	my $cmd = $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND;
-	if ($cmd) {
-	    $proc->run_command($cmd);
-	} else { last; }
-    }
+    my $cmd = $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND;
+    if ($cmd) {
+      $proc->run_command($cmd);
+    } else { last; }
+  }
 }
 
 unless (caller) {

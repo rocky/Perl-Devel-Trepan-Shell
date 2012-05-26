@@ -34,7 +34,7 @@ my $builder = Module::Build->new(
 	'Module::Build' => '0.32',
     },
     requires => {
-	'perl'                              => '5.010000',
+	'perl'                              => '5.008008',
 	'Devel::Trepan'                     => '0.001009',
 	'Devel::REPL'                       => 0,
         'Test::More'                        => '0.81',

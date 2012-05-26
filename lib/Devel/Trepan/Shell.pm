@@ -2,7 +2,7 @@
 # Copyright (C) 2012 Rocky Bernstein <rocky@cpan.org>
 # Documentation is at the __END__
 package Devel::Trepan::Shell;
-use version; $VERSION = '1.3';
+use version; $VERSION = '1.4';
 "All of the real action is in Devel::Trepan::CmdProcessor::Command::Shell.pm";
 __END__
 
@@ -50,7 +50,7 @@ particular purpose.
 The program is free software. You may distribute it and/or modify it
 under the terms of the GNU General Public License as published by the
 Free Software Foundation (either version 2 or any later version) and
-the Perl Artistic License as published by O’Reilly Media, Inc. Please
+the Perl Artistic License as published by O'Reilly Media, Inc. Please
 open the files named gpl-2.0.txt and Artistic for a copy of these
 licenses.
 
