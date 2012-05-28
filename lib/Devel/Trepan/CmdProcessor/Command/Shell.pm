@@ -76,7 +76,7 @@ sub run($$)
   my $proc = $self->{proc};
   unless (defined($repl)) {
     my $input = $proc->{interfaces}[-1]{input};
-    my $promp = "\ntrepan.pl>> ";
+    my $prompt = "\ntrepan.pl>> ";
     if (UNIVERSAL::isa( $input, "HASH" )) {
       $repl = Devel::REPL->new( prompt => $prompt,
 				term => $input->{readline} );
