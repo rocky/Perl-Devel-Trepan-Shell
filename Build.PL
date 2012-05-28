@@ -24,7 +24,7 @@ my $builder = Module::Build->new(
     add_to_cleanup      => [ 'Devel-Trepan-*', 'tmp*', '*.got'  ],
     create_makefile_pl  => 'passthrough',
     dist_abstract       => 
-    'Adds shell support  to Devel::Trepan via either Devel::REPL or Psh',
+    'Adds shell support  to Devel::Trepan via Devel::REPL',
     dist_author         => 'Rocky Bernstein <rocky@cpan.org>',
     dist_version_from   => 'lib/Devel/Trepan/Shell.pm',
     license             => 'gpl',
