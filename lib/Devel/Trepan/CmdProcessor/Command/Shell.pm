@@ -75,11 +75,14 @@ sub run($$)
   my ($self, $args) = @_;
   my $proc = $self->{proc};
   unless (defined($repl)) {
-    my $term = $proc->{interfaces}[-1]{input}{readline};
-    $repl = Devel::REPL->new(
-                             prompt => "\ntrepan.pl>> ",
-                             term   => $term
-                            );
+    my $input = $proc->{interfaces}[-1]{input};
+    my $promp = "\ntrepan.pl>> ";
+    if (UNIVERSAL::isa( $input, "HASH" )) {
+      $repl = Devel::REPL->new( prompt => $prompt,
+				term => $input->{readline} );
+    } else {
+      $repl = Devel::REPL->new( prompt => $prompt);
+    }
     $repl->load_plugin('LexEnv');         # 'my' variables should persist.
     $repl->load_plugin('MultiLine::PPI'); # for indent depth
     $repl->load_plugin('Packages');       # for current package
