@@ -1,14 +1,14 @@
 language: perl
 
 env:
-  - AUTOMATED_TESTING=1 PREREQS="Devel::Trepan"
+  - AUTOMATED_TESTING=1 PREREQS="Devel::Trepan RE::PL"
 
 after_failure:
   - cat /home/travis/.cpanm/work/*/build.log
 
 install:
   # Prerequisites
-  - "cpanm $PREREQS"
+  - "perl ./Build && cpanm $PREREQS"
 
 perl:
   - "5.18"
