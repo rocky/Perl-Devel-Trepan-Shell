@@ -8,7 +8,7 @@ after_failure:
 
 install:
   # Prerequisites
-  - "cpanm $PREREQS"
+  - "cpanm --verbose --force $PREREQS"
 
 perl:
   - "5.18"
