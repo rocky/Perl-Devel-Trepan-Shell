@@ -8,7 +8,7 @@ after_failure:
 
 install:
   # Prerequisites
-  - "perl ./Build && cpanm $PREREQS"
+  - "cpanm $PREREQS"
 
 perl:
   - "5.18"
