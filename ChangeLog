@@ -1,3 +1,29 @@
+2014-05-20  Rocky Bernstein <rocky@cpan.org>
+
+	* Build.PL, Changes, MANIFEST, MANIFEST.SKIP,
+	lib/Devel/Trepan/CmdProcessor/Command/Shell.pm,
+	lib/Devel/Trepan/Shell.pm, t/data/shell.cmd: Revise for current POD
+	standards. Add bin/trepanpl.sh.  Get ready for release 1.5.
+
+2012-05-28  Rocky Bernstein <rocky@cpan.org>
+
+	* Build.PL: Test::More -> Test::Simple. And make it a test-only
+	dependency.
+
+2012-05-27  Rocky Bernstein <rocky@cpan.org>
+
+	* lib/Devel/Trepan/CmdProcessor/Command/Shell.pm: Typo
+
+2012-05-27  Rocky Bernstein <rocky@cpan.org>
+
+	* : commit 57711a122d7096c3b9dcb7422986e09c997d2701 Author: Rocky
+	Bernstein <rocky@cpan.org> Date:   Sun May 27 20:15:26 2012 -0400
+
+2012-05-26  Rocky Bernstein <rocky@cpan.org>
+
+	* Build.PL, lib/Devel/Trepan/Shell.pm: Build.PL - we don't do Psh
+	here any more.
+
 2012-05-25  Rocky Bernstein <rocky@cpan.org>
 
 	* Build.PL, lib/Devel/Trepan/CmdProcessor/Command/Shell.pm,
@@ -24,7 +50,6 @@
 	README.md, lib/Devel/Trepan/Shell.pm, t/00load.t, t/00test-pod.t: 
 	Small changes and fixups for release: Correct README and add perlpod
 	to Shell.pm Add rudimentary tests. Correct MANIFEST for removed Psh
-
 
 2012-05-22  Rocky Bernstein <rocky@cpan.org>
 
@@ -83,7 +108,7 @@
 2012-01-06  Rocky Bernstein <rocky@cpan.org>
 
 	* Build.PL, lib/Devel/REPL/Plugin/Trepan.pm: Trepan.pm: rough cut at
-	adding %debug to debug into an expression. Biuld.PL: add
+	adding %debug to debug into an expression.  Biuld.PL: add
 	dependencies.
 
 2011-12-26  Rocky Bernstein <rocky@cpan.org>
@@ -91,7 +116,7 @@
 	* lib/Devel/REPL/Plugin/TrepanShell.pm,
 	lib/Devel/Trepan/CmdProcessor/Command/Shell.pm: Use % as escape
 	character to match what has been done in other Plugins for non-Perl
-	commands. It also matches what's done in ipython.
+	commands.  It also matches what's done in ipython.
 
 2011-12-20  Rocky Bernstein <rocky@cpan.org>
 

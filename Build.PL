@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-#  Copyright (C) 2011, 2012 Rocky Bernstein <rockycpan.org>
+#  Copyright (C) 2011-2012, 2014 Rocky Bernstein <rockycpan.org>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -19,18 +19,18 @@ use warnings;
 use Module::Build;
 use Config;
 
-my $builder = Module::Build->new( 
+my $builder = Module::Build->new(
     module_name         => 'Devel::Trepan::Shell',
     add_to_cleanup      => [ 'Devel-Trepan-*', 'tmp*', '*.got'  ],
     create_makefile_pl  => 'passthrough',
-    dist_abstract       => 
-    'Adds shell support  to Devel::Trepan via Devel::REPL',
+    dist_abstract       =>
+    'Adds shell support to Devel::Trepan via Devel::REPL',
     dist_author         => 'Rocky Bernstein <rocky@cpan.org>',
     dist_version_from   => 'lib/Devel/Trepan/Shell.pm',
     license             => 'gpl',
     needs_compiler      => 0,
     release_status      => 'stable',
-    configure_requires  => { 
+    configure_requires  => {
 	'Module::Build' => '0.32',
     },
     test_requires => {
@@ -38,7 +38,7 @@ my $builder = Module::Build->new(
     },
     requires => {
 	'perl'                              => '5.008008',
-	'Devel::Trepan'                     => '0.001009',
+	'Devel::Trepan'                     => '0.58',
 	'Devel::REPL'                       => 0,
          'version'                          => 0,
     },

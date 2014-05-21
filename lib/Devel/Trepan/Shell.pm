@@ -1,8 +1,8 @@
-#!/usr/bin/env perl 
-# Copyright (C) 2012 Rocky Bernstein <rocky@cpan.org>
+#!/usr/bin/env perl
+# Copyright (C) 2012, 2014 Rocky Bernstein <rocky@cpan.org>
 # Documentation is at the __END__
 package Devel::Trepan::Shell;
-use version; $VERSION = '1.4.1';
+use version; $VERSION = '1.5';
 "All of the real action is in Devel::Trepan::CmdProcessor::Command::Shell.pm";
 __END__
 
@@ -24,7 +24,7 @@ This package also contains some L<Devel::REPL> plugins for entering both the
 Devel::Trepan debugger and the tried-and-true L<perl5db>.
 debugger, from a I<re.pl> shell:
 
-To call the debuggers inside I<re.pl>, first run or put in your 
+To call the debuggers inside I<re.pl>, first run or put in your
 I<~/.re.pl/rc.pl> file:
 
     $_REPL->load_plugin('Trepan');         # to go into the trepan debugger
@@ -41,7 +41,7 @@ Rocky Bernstein
 
 =head1 COPYRIGHT
 
-Copyright (C) 2012 Rocky Bernstein <rocky@cpan.org>
+Copyright (C) 2012, 2014 Rocky Bernstein <rocky@cpan.org>
 
 This program is distributed WITHOUT ANY WARRANTY, including but not
 limited to the implied warranties of merchantability or fitness for a

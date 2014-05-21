@@ -1,4 +1,4 @@
-# Copyright (C) 2011, 2012 Rocky Bernstein <rocky@cpan.org>
+# Copyright (C) 2011-2012, 2014 Rocky Bernstein <rocky@cpan.org>
 use warnings; no warnings 'redefine';
 
 package Devel::REPL::Plugin::TrepanShell;
@@ -48,17 +48,28 @@ our @ISA = @CMD_ISA;  # value inherited from parent
 use vars @CMD_VARS;   # value inherited from parent
 
 our $NAME = set_name();
+=head2 Synopsis:
+
+=cut
 our $HELP = <<"HELP";
-${NAME} 
+=pod
+
+B<shell>
 
 Run a command shell via Devel::REPL
 
 To issue a debugger command inside the shell start the line with a '%'
-For example: 
+For example:
 
-%info program  # shows debugged program information
+   %info program  # shows debugged program information
+
 
 To leave the shell enter a single .
+
+=head2 See also:
+
+L<C<eval>|Devel::Trepan::CmdProcessor::Command::Eval>
+=cut
 HELP
 
 # sub complete($$)
@@ -95,8 +106,8 @@ sub run($$)
     $DEBUGGER_COMMAND='';
     eval {
       $repl->run;
-    }; 
-    if ($EVAL_ERROR) { 
+    };
+    if ($EVAL_ERROR) {
       $self->errmsg($EVAL_ERROR);
     }
     my $cmd = $Devel::REPL::Plugin::TrepanShell::DEBUGGER_COMMAND;

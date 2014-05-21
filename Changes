@@ -1,5 +1,9 @@
 Revision history for Devel-Trepan-Shell
 
+1.5  May 20 2014
+
+- Revise for current POD standards. Add bin/trepanpl.sh
+
 1.4  May 26 2012
 - Rewrite tolerate back to 5.8. Remove non-UTF8 character in POD to remove
   CPANTS testing failure
