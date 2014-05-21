@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 # Copyright (C) 2011-2012, 2014 Rocky Bernstein <rocky@cpan.org>
-use warnings; no warnings 'redefine';
+use warnings; no warnings 'redefine'; use utf8;
 
 package Devel::REPL::Plugin::TrepanShell;
 
@@ -56,15 +57,15 @@ our $HELP = <<"HELP";
 
 B<shell>
 
-Run a command shell via Devel::REPL
+Run a command shell via L<Devel::REPL>.
 
-To issue a debugger command inside the shell start the line with a '%'
+To issue a debugger command inside the shell start the line with a C<%>
 For example:
 
    %info program  # shows debugged program information
 
 
-To leave the shell enter a single .
+To leave the shell enter a single C<%>.
 
 =head2 See also:
 
