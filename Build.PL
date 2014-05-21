@@ -29,7 +29,7 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/Devel/Trepan/Shell.pm',
     license             => 'gpl',
     needs_compiler      => 0,
-    release_status      => 'testing'; # or 'stable',
+    release_status      => 'testing', # or 'stable',
     configure_requires  => {
 	'Module::Build' => '0.32',
     },
