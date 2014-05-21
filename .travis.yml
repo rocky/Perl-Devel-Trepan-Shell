@@ -1,7 +1,7 @@
 language: perl
 
 env:
-  - AUTOMATED_TESTING=1 PREREQS="Devel::Trepan RE::PL"
+  - AUTOMATED_TESTING=1 PREREQS="Devel::Trepan Devel::REPL"
 
 after_failure:
   - cat /home/travis/.cpanm/work/*/build.log
