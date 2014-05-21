@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rocky/Perl-Devel-Trepan-Shell.png)](https://travis-ci.org/rocky/Perl-Devel-Trepan-Shell)
+
 Devel::Trepan::Shell -- interactive shell support for Devel::Trepan and more
 ==================================================================
 
@@ -20,7 +22,7 @@ This package also contains some <i>Devel::REPL</i> plugins for entering both the
 <i>Devel::Trepan</i> debugger and the tried-and-true <i>perl5db</i>
 debugger, from a <i>re.pl</i> shell:
 
-To call the debuggers inside <i>re.pl</i>, first run or put in your 
+To call the debuggers inside <i>re.pl</i>, first run or put in your
 <i>~/.re.pl/rc.pl</i> file:
 
     $_REPL->load_plugin('Trepan');         # to go into the trepan debugger
